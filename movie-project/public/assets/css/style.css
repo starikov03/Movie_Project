@@ -1,0 +1,914 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.2em;
+  background-color: whitesmoke;
+  color: #555;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+  padding: 0 0 20px 0;
+  line-height: 1.7em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+  color: #5d5d5d;
+  width: 60%;
+  padding: 8px;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+  border: solid 1px #f2f2f2;
+}
+
+h1,
+h2 {
+  font: normal 170% 'century gothic', arial;
+  margin: 0 0 10px 0;
+  padding: 0px 0 0px 0;
+  color: #000;
+}
+
+h2 {
+  font-size: 140%;
+}
+
+a,
+a:hover {
+  outline: none;
+  text-decoration: underline;
+  color: #aeb002;
+}
+
+ul {
+  margin: 2px 0 22px 17px;
+}
+
+ul li {
+  margin: 0 0 6px 0;
+  padding: 0 0 4px 5px;
+  line-height: 1.5em;
+}
+
+
+.header {
+  background-color: #1F1F1F;
+  height: 120px;
+  font-size: 0.8em;
+  margin-left: 0px;
+  margin-right: 0px;
+  min-width: 1020px;
+}
+
+
+.main,
+.logo,
+.menubar,
+.site_content,
+.footer .pagination-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  width: 1020px;
+  padding-bottom: 10px;
+}
+
+.logo h1,
+.logo h2 {
+  font: normal 180% "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 0 0 9px;
+}
+
+.Login_btn {
+  margin-left: 37px;
+  display: inline-block;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #121717;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  color: #47bcd4;
+  font-size: 14px;
+  font-weight: normal;
+  border-color: #47bcd4;
+}
+
+.logo_text h1,
+.logo_text h1 a,
+.logo_text h1 a:hover {
+  padding: 15px 0 0 0;
+  color: #47bcd4;
+  letter-spacing: 15px;
+  text-decoration: none;
+
+}
+
+.logo_text h2 {
+  font-size: 0.9em;
+  padding: 0px 0 0 0;
+  color: #A5A5A5 !important;
+  font-size: 85%;
+  letter-spacing: 3px;
+
+}
+
+hr {
+  margin-bottom: 10px;
+  margin-right: 2%;
+  border: 0;
+  border-top: 1px solid rgb(110, 110, 110);
+}
+
+.menubar {
+  width: 900px;
+  height: 46px;
+}
+
+ul.menu {
+  float: center;
+}
+
+ul.menu li {
+  float: left;
+  padding: 0 0 0 9px;
+  list-style: none;
+  margin: 1px 2px 0 0;
+}
+
+ul.menu li a {
+  display: block;
+  height: 20px;
+  padding: 6px 35px 5px 28px;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul.menu li.selected a {
+  color: #aeb002;
+}
+
+ul.menu li a:hover {
+  color: #e4ec04;
+}
+
+.site_content {
+  width: 1020px;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  background-color: transparent;
+}
+
+.sidebar_container {
+  float: right;
+  width: 300px;
+}
+
+.sidebar {
+  float: right;
+  width: 230px;
+  padding: 5%;
+  margin: 15px 15px 15px 0px;
+  border: solid 1px #f2f2f2;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar_header {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.clear-filters_btn {
+  margin-left: 9px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background-color: #8fa1a6;
+  border: 1px solid #8fa1a6;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  width: 70%;
+  font-weight: normal;
+  background: -webkit-gradient(linear,
+      left top,
+      right top,
+      color-stop(0, #5e39ae),
+      to(#47bcd4)) no-repeat;
+  background: -o-linear-gradient(left, #5ecee5 0, #47bcd4 100%) no-repeat;
+  background: linear-gradient(to right, #5fc5da 0, #31a1b8 100%) no-repeat;
+  border-color: #47bcd4;
+}
+
+.select-header {
+  display: block;
+  margin-left: 9px;
+  margin-bottom: 5px;
+}
+
+.select-item {
+  border-radius: 5px;
+  margin-left: 9px;
+  margin-bottom: 10px;
+  width: 70%;
+  border: 2px solid #47bcd4;
+  cursor: pointer;
+  font-size: 17px;
+  color: #555;
+  border-color: #47bcd4;
+}
+
+
+
+/*-------------------------------------- Checkboxes -------------------------------------*/
+
+.Checkbox {
+  padding-bottom: 5px;
+}
+
+.label {
+  font-family: 'Poppins', sans-serif;
+  margin: 8px 5px 8px 0px;
+  position: relative;
+  /*относительное позиционирование*/
+  width: 40px;
+  /*ширина метки*/
+  height: 20px;
+  /*высота метки*/
+  cursor: pointer;
+  display: inline-block;
+}
+
+label input {
+  appearance: none;
+  /*скрыть чекбокс*/
+}
+
+label span {
+  position: absolute;
+  /*абсолютное позиционирование*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 80px;
+  /*закругление углов*/
+  background: #6A6A6A;
+  /*цвет чекбокса*/
+  transition: 0.5s;
+  /*плавный переход состояния*/
+  /*box-shadow: 0 15px 25px #fe000066;/*тень*/
+}
+
+label input:checked~span {
+  background: #aeb002;
+  /*цвет отмеченного чекбокса*/
+  /*box-shadow: 0 15px 25px #05be0566;/*тень*/
+}
+
+label span i {
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 15px;
+  /*ширина круга*/
+  height: 15px;
+  /*высота круга*/
+  background: #fff;
+  /*цвет круга*/
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+label input:checked~span i {
+  left: 22px;
+  /*сдвиг круга*/
+
+}
+
+.checkbox_name {
+  font: normal 85% "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;
+  display: inline-block;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+.btn {
+  padding: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.sidebar h2 {
+  color: #136cb2;
+}
+
+.lables_passreg_text {
+  font-size: 0.7em;
+  margin-top: 3%;
+  margin-left: 2%;
+}
+
+.sidebar ul {
+  margin: 0;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+  margin: 0 0 0 0;
+}
+
+.sidebar .rating_sidebar {
+  float: right;
+}
+
+
+.content {
+  text-align: left;
+  width: 710px;
+  padding: 0 0 0 10px;
+  float: left;
+}
+
+.content a {
+  text-decoration: none;
+}
+
+.films_block {
+  margin-bottom: 5%;
+}
+
+/* ------------------------------------- FILM CARD ---------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.card {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 330px;
+}
+
+.card-header img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5px 20px 20px 20px;
+  min-height: 180px;
+  text-align: left;
+}
+
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tag-teal {
+  background-color: #47bcd4;
+  margin-bottom: 15px;
+}
+
+.tag-purple {
+  background-color: #5e76bf;
+}
+
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 10px 0 0px;
+  text-align: left;
+}
+
+.rating {
+  color: #555;
+  font-size: 13px;
+  margin: 20px 0 0;
+}
+
+.user {
+  display: flex;
+}
+
+
+.favorite__btn {
+  margin: 10px 10px 0px 0px;
+  background: url("../img/heart.svg");
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite__btn--active {
+  background: url("../img/heart_red.svg");
+}
+
+.to-read__btn {
+  margin: 10px 10px 0px 0px;
+  display: inline-flex;
+
+  background: url("../img/bookmark.png");
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.to-read__btn--active {
+  background: url("../img/bookmark-stored.png");
+}
+
+.film-info h5 {
+  margin: 0;
+  color: #aeb002;
+}
+
+.film-info small {
+  color: #545d7a;
+}
+
+small{
+  user-select: none;
+}
+
+/*-----------------------------------------------------------*/
+
+
+.posts .posts_content {
+  font-size: 0.8em;
+}
+
+
+/* Страница просмотра фильма */
+
+.info_film_page {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.info_film_page .label {
+  font-size: 1.2em;
+}
+
+.info_film_page .value {
+  font-size: 1em;
+  color: #49945A;
+  margin-right: 3%;
+}
+
+.descriptions_film {
+  margin-bottom: 15%;
+}
+
+.descriptions_film img {
+  float: left;
+  margin-right: 2%;
+  border-radius: 5px;
+  border: solid 5px #dad7d5;
+}
+
+.reviews {
+  margin-bottom: 4%;
+  font-size: 0.9em;
+}
+
+.reviews .review_name {
+  background-color: #7268AD;
+  color: white;
+  padding: 1%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.reviews .review_text {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+}
+
+.send {
+  margin-bottom: 4%;
+}
+
+.send input[type="text"],
+textarea {
+  border: solid 1px #C3C3C3;
+  margin-bottom: 2%;
+}
+
+.send input[type="text"] {
+  width: 98%;
+}
+
+.send textarea {
+  width: 624px;
+  height: 200px;
+}
+
+.send input[type="submit"] {
+  background-color: #7268AD;
+  padding: 3%;
+  color: white;
+  border-radius: 5px;
+}
+
+
+
+.send_contact input[type="text"] {
+  width: 500px;
+}
+
+.send_contact textarea {
+  width: 516px;
+}
+
+
+
+.info_film {
+  margin-bottom: 5%;
+  background-color: #f9f9f9;
+  padding: 5%;
+  height: 270px;
+}
+
+.info_film img {
+  float: left;
+  margin-right: 2%;
+  border-radius: 5px;
+  border: solid 5px #dad7d5;
+  width: 25%;
+}
+
+.button {
+  background-color: #7268ad;
+  padding: 2%;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-top: 5%;
+  clear: both;
+  font-size: 0.8em;
+}
+
+.button a {
+  color: white;
+}
+
+
+table {
+  width: 100%;
+  border: solid 1px #f4f4f4;
+}
+
+td {
+  padding: 2%;
+  border: solid 1px #f4f4f4;
+}
+
+td img {
+  width: 60px;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+.rating {
+  font-weight: bold;
+}
+
+.pagination-block {
+  width: 100%;
+  background-color: transparent;
+  color: #a8aa94;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  min-width: 710px;
+}
+
+.pagination-block h1{
+  display: inline-block;
+ margin: 0;
+ padding: 0;
+}
+
+.pagination-btns{
+  display: inline-block;
+  width: 60%;
+  text-align: right;
+}
+
+.pagination-block small{
+  display: block;
+ 
+}
+
+
+
+.Previous-page_btn, .Next-page_btn {
+  user-select: none;
+  margin-left: 0px;
+  margin-right: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background-color: #8fa1a6;
+  border: 1px solid #8fa1a6;
+  border-radius: 5px;
+  padding: 8px;
+  color: #fff;
+  font-size: 14px;
+  width: 20%;
+  font-weight: normal;
+  background-color: #47bcd4;
+  border-color: #47bcd4;
+  border-radius: 5px;
+}
+
+.pagination-btns button:disabled{
+  background-color: #9ed0d8;
+}
+
+.pagination-btns button:disabled:hover{
+  background-color: #9ed0d8;
+  box-shadow:none;
+}
+
+
+.pagination-btns button:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  padding: 28px 0 5px 0;
+  text-align: center;
+  background-color: #1F1F1F;
+  color: #a8aa94;
+  margin-left: 0px;
+  margin-right: 0px;
+  min-width: 1020px;
+}
+
+.footer a {
+  color: #a8aa94;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer p {
+  padding: 0 0 10px 0;
+}
+
+
+/* CSS Mobile */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+
+  .header {
+    background-color: #1F1F1F;
+    min-width: 100%;
+    height: 20%;
+    text-align: center;
+    padding-bottom: 3px;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .logo h1,
+  .logo h2 {
+    font: normal 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 0px 15px;
+  }
+
+  .logo h2 {
+    font: normal 50% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 0 10px 15px;
+  }
+
+
+
+  .logo_text h1,
+  .logo_text h1 a,
+  .logo_text h1 a:hover {
+    padding: 15px 0 0 0;
+    color: #47bcd4;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+
+  hr {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  
+
+  .site_content {
+    width: 100%;
+  }
+
+  .menubar {
+    width: 100%;
+    height: 100%;
+  }
+
+  ul.menu li a {
+    font: normal 90% 'trebuchet ms', sans-serif;
+  }
+
+  .Login_btn {
+    padding: 5px 10px 5px 10px;
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 0 0px;
+  }
+
+  .site_content {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .sidebar_container {
+    display: none;
+  }
+
+  .pagination-block {
+    min-width: 100%;
+    height: 20%;
+    text-align: center;
+  }
+
+  .pagination-block h1{
+    margin-bottom: 15px;
+  }
+
+  .pagination-btns button {
+    width: 40%;
+    text-align: center;
+  }
+
+
+  .footer {
+    background-color: #1F1F1F;
+    min-width: 100%;
+    height: 20%;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 10px;
+  }
+
+  ul.menu {
+    float: none;
+  }
+
+  ul.menu li {
+    margin: 0;
+    padding: 0;
+    float: none;
+  }
+
+
+  .content h1,
+  h2 {
+    font: normal 110% 'century gothic', arial;
+  }
+
+  /*.films_block img {
+    width: 43%;
+  }*/
+
+  .posts_content p {
+    line-height: 1.5em;
+    padding: 3%;
+    text-align: left;
+  }
+
+  .posts p {
+    font-size: 120%;
+  }
+
+  /* fimls page */
+  .info_film {
+    float: none;
+    height: 100%;
+  }
+
+  .info_film img {
+    width: 90%;
+    margin-bottom: 5%;
+  }
+
+  .button {
+    float: none;
+  }
+
+  /* rating page */
+  table {
+    display: block;
+  }
+
+  th {
+    font-size: 75%;
+  }
+
+  td {
+    padding: 0;
+    margin: 0;
+    font-size: 95%;
+    text-align: left;
+  }
+
+  /* show page */
+  iframe {
+    width: 88%;
+    height: 100%;
+  }
+
+  .descriptions_film {
+    width: 90%;
+    text-align: left;
+    margin-left: 2%;
+  }
+
+  .descriptions_film img {
+    float: none;
+    width: 73%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-left: 11%;
+    margin-bottom: 7%;
+  }
+
+  .reviews {
+    text-align: left;
+    width: 96%;
+  }
+
+  .send input[type="text"] {
+    width: 80%;
+  }
+
+  .send textarea {
+    width: 85%;
+  }
+
+}
