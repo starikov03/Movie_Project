@@ -1,14 +1,20 @@
-import { useState, useEffect } from "react";
-import { allPagesCounter } from "../../helperFunctions/allPagesCounter";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { setNewCurrentPage } from "../../Redux/actions";
 
-const CreatePagination = ({ setNewPageFilms }) => {
-	const [currentPage, setCurrentPage] = useState(1);
-	const countPages = allPagesCounter();
+
+const CreatePagination = ({ FilmsList }) => {
+	const dispatch = useDispatch();
+	const currentPage = useSelector(state => state.currentPage);
+	const countPages = Math.ceil(FilmsList.length / 10);
 
 	useEffect(() => {
 		const previousButton = document.querySelector('.Previous-page_btn');
 		const nextButton = document.querySelector('.Next-page_btn');
-		if (currentPage === 1) {
+		if (!FilmsList[0] || (currentPage === 1 && countPages === 1)) {
+			previousButton.disabled = true;
+			nextButton.disabled = true;
+		} else if (currentPage === 1) {
 			nextButton.disabled = false;
 			previousButton.disabled = true;
 		} else if (currentPage === countPages) {
@@ -20,26 +26,16 @@ const CreatePagination = ({ setNewPageFilms }) => {
 		}
 	})
 
-	const previousOnClick = () => {
-		setCurrentPage(currentPage - 1);
-		setNewPageFilms(currentPage - 1);
-	}
-
-	const nextOnClick = () => {
-		setCurrentPage(currentPage + 1);
-		setNewPageFilms(currentPage + 1);
-	}
-
 
 	return (
 		<div className="pagination-block">
 			<h1>Новые фильмы</h1>
 			<div className="pagination-btns">
-				<button className="Previous-page_btn" onClick={previousOnClick}>Назад</button>
-				<button className="Next-page_btn" onClick={nextOnClick}>Вперед</button>
+				<button className="Previous-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage - 1)) }}>Назад</button>
+				<button className="Next-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage + 1)) }}>Вперед</button>
 			</div>
 			<hr />
-			<small>{currentPage} из {countPages}</small>
+			{(FilmsList[0]) ? <small>{currentPage} из {countPages}</small> : <small>Фильмы не найдены</small>}
 		</div>
 	);
 }

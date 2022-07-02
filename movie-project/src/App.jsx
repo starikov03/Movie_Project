@@ -1,21 +1,25 @@
 import { CreateHeader } from "./Header";
-import { CreateSidebar } from "./Sidebar";
+import { CreateSidebar } from "./Sidebar/Sidebar";
 import { CreateFilmsList } from "./Movie-List/Movie-List";
 import { CreateFooter } from "./Footer";
-import { CHECKBOXES } from "./Consts";
-import { useState } from 'react';
+import { useState } from "react";
+import { CreateAuthorizationForm } from "./Authorization";
+
 
 function App() {
-	//const [films, setfilms] = useState(FILMS);
-	const [checkboxes, setCheckboxes] = useState(CHECKBOXES);
+	const [formAuthorization, setFormAuthorization] = useState({ isFormOpen: false })
+
 
 	return (
 		<>
+			{(formAuthorization.isFormOpen) ? <CreateAuthorizationForm setFormAuthorization={setFormAuthorization} /> : ''}
 			<div className="main">
-				<CreateHeader />
+				<CreateHeader setFormAuthorization={setFormAuthorization} />
 				<div className="site_content">
-					<CreateSidebar checkboxes={checkboxes}/>
-					<CreateFilmsList />
+					
+					<CreateSidebar />
+					<CreateFilmsList setFormAuthorization={setFormAuthorization} />
+
 				</div>
 			</div>
 
