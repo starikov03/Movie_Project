@@ -1,20 +1,21 @@
 import { useDispatch } from "react-redux";
-import { sortByGener, addActiveGener, deleteActiveGener, setNewCurrentPage } from "../../Redux/actions";
+import { setNewCurrentPage } from "../../redux/actions";
+import { addActiveGener, deleteActiveGener } from "../../redux/actions";
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 
 const CreateCheckbox = ({ index, item }) => {
-
+	const { setNewActiveGeners } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const onSelected = (e) => {
 		if (e.target.checked) {
+			setNewActiveGeners(addActiveGener(e.target.value));
 			dispatch(setNewCurrentPage(1));
-			dispatch(addActiveGener(e.target.value));
-			dispatch(sortByGener());
 		} else {
+			setNewActiveGeners(deleteActiveGener(e.target.value));
 			dispatch(setNewCurrentPage(1));
-			dispatch(deleteActiveGener(e.target.value));
-			dispatch(sortByGener());
 		}
 	}
 

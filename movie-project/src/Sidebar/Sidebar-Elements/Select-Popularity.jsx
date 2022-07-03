@@ -1,30 +1,36 @@
 
 import { useDispatch } from "react-redux";
 import {
-	sortPopularityDescendingList, sortPopularityAscendingList,
-	sortRatingDescendingList, sortRatingAscendingList, setNewCurrentPage
-} from "../../Redux/actions";
+	sortPopularityDescendingList,
+	sortPopularityAscendingList,
+	sortRatingDescendingList,
+	sortRatingAscendingList,
+	setNewCurrentPage,
+} from "../../redux/actions";
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 const CreateSelectPopularityElement = () => {
+	const { sortAll } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
 		switch (e.target.value) {
 			case "Popularity-Descending":
 				dispatch(setNewCurrentPage(1));
-				dispatch(sortPopularityDescendingList());
+				sortAll(sortPopularityDescendingList());
 				break;
 			case "Popularity-Ascending":
 				dispatch(setNewCurrentPage(1));
-				dispatch(sortPopularityAscendingList());
+				sortAll(sortPopularityAscendingList());
 				break;
 			case "Rating-Descending":
 				dispatch(setNewCurrentPage(1));
-				dispatch(sortRatingDescendingList());
+				sortAll(sortRatingDescendingList());
 				break;
 			case "Rating-Ascending":
 				dispatch(setNewCurrentPage(1));
-				dispatch(sortRatingAscendingList());
+				sortAll(sortRatingAscendingList());
 				break;
 			default: alert("Это не выполняется")
 		}

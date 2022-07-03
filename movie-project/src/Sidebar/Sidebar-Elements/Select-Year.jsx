@@ -1,15 +1,17 @@
-import { useDispatch,  } from "react-redux";
-import { sortByYear, setNewCurrentPage, setNewCurrentYear } from "../../Redux/actions";
+import { useDispatch, } from "react-redux";
+import { setNewCurrentPage } from "../../redux/actions";
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 
 
 const CreateSelectYearElement = () => {
+	const { setNewCurrentYear } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
-		dispatch(setNewCurrentYear(e.target.value));
+		setNewCurrentYear(e.target.value);
 		dispatch(setNewCurrentPage(1));
-		dispatch(sortByYear());
 	}
 
 

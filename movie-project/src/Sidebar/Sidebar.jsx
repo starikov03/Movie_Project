@@ -2,21 +2,12 @@ import { CHECKBOXES } from "../Consts";
 import { CreateSelectPopularityElement } from "./Sidebar-Elements/Select-Popularity";
 import { CreateSelectYearElement } from "./Sidebar-Elements/Select-Year";
 import { CreateCheckbox } from "./Sidebar-Elements/Checkboxes";
-import { useDispatch, useSelector } from "react-redux";
-import { sortByDefault } from "../Redux/actions";
+import { useSelector } from "react-redux";
 import { CreateSelectFavoriteToRead } from "./Sidebar-Elements/Select-Favorite-toRead";
 
 
-const CreateSidebar = () => {
-	const dispatch = useDispatch();
+const CreateSidebar = ({ resetFilters }) => {
 	const isAuthorized = useSelector(state => state.isAuthorized);
-
-	const resetFilters = () => {
-		dispatch(sortByDefault());
-		document.getElementById('Select-Years').selectedIndex = 0;
-		document.getElementById('Select-Popularity').selectedIndex = 0;
-		document.querySelectorAll('.checkbox_input').forEach(item => item.checked = false);
-	}
 
 	return (
 		<div className="sidebar_container">
@@ -38,7 +29,7 @@ const CreateSidebar = () => {
 					<hr />
 				</div>
 
-				<button className="clear-filters_btn" onClick={resetFilters}>Сбросить фильтры</button>
+				<button className="clear-filters_btn" onClick={() => resetFilters()}>Сбросить фильтры</button>
 
 				{(isAuthorized) ? <CreateSelectFavoriteToRead /> : ''}
 

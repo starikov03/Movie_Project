@@ -1,28 +1,30 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addFavoriteList, removeFavoriteList, setNewCurrentPage, removeToReadList, addToReadList } from '../../Redux/actions';
+import { setNewCurrentPage } from '../../redux/actions';
+import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList } from '../../redux/actions';
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
-const CreateFilmElement = ({ index, item, setFormAuthorization }) => {
+const CreateFilmElement = ({ index, item, setFormAuthorization, favotiteFilmsList, toReadFilmsList }) => {
+	const { setNewFavoriteToReadList } = useContext(MyContext);
 	const dispatch = useDispatch();
 	const isAuthorized = useSelector(state => state.isAuthorized);
-	const favoriteList = useSelector(state => state.FAVORITE_LIST);
-	const toReadList = useSelector(state => state.TO_READ_LIST);
 
-	const changeToReadList = () => {
-		if (toReadList.includes(item, 0)) {
-			dispatch(removeToReadList(item));
+
+	const handleClickToRead = () => {
+		if (toReadFilmsList.includes(item, 0)) {
+			setNewFavoriteToReadList(removeToReadList(item))
 			dispatch(setNewCurrentPage(1));
 		} else {
-			dispatch(addToReadList(item));
+			setNewFavoriteToReadList(addToReadList(item))
 		}
 	}
 
-
-	const changeFavoriteList = () => {
-		if (favoriteList.includes(item, 0)) {
-			dispatch(removeFavoriteList(item));
+	const handleClickFavorite = () => {
+		if (favotiteFilmsList.includes(item, 0)) {
+			setNewFavoriteToReadList(removeFavoriteList(item))
 			dispatch(setNewCurrentPage(1));
 		} else {
-			dispatch(addFavoriteList(item));
+			setNewFavoriteToReadList(addFavoriteList(item))
 		}
 	}
 
@@ -41,13 +43,13 @@ const CreateFilmElement = ({ index, item, setFormAuthorization }) => {
 					{`${item.overview.substring(0, 150)}...`}
 				</span>
 				<div className="user">
-					<button className={(JSON.stringify(toReadList).includes(JSON.stringify(item), 0)) ?
+					<button className={(JSON.stringify(toReadFilmsList).includes(JSON.stringify(item), 0)) ?
 						'to-read__btn to-read__btn--active' : 'to-read__btn'}
-						onClick={() => { (isAuthorized) ? changeToReadList() : setFormAuthorization({ isFormOpen: true }) }}>
+						onClick={() => { (isAuthorized) ? handleClickToRead() : setFormAuthorization({ isFormOpen: true }) }}>
 					</button>
-					<button className={(JSON.stringify(favoriteList).includes(JSON.stringify(item), 0)) ?
+					<button className={(JSON.stringify(favotiteFilmsList).includes(JSON.stringify(item), 0)) ?
 						'favorite__btn favorite__btn--active' : 'favorite__btn'}
-						onClick={() => { (isAuthorized) ? changeFavoriteList() : setFormAuthorization({ isFormOpen: true }) }}>
+						onClick={() => { (isAuthorized) ? handleClickFavorite() : setFormAuthorization({ isFormOpen: true }) }}>
 					</button>
 					<div className="film-info">
 						<h5>Рейтинг: {item.vote_average}</h5>

@@ -1,22 +1,31 @@
 import { useDispatch } from "react-redux";
-import { showAllFilms, showFavoriteFilms, setNewCurrentPage, showToReadFilms } from "../../Redux/actions";
+import { setNewCurrentPage } from "../../redux/actions";
+import { useContext } from "react";
+import { MyContext } from "../../App";
+
+const SHOW_LIST = {
+	ALL_LIST: "All",
+	TO_READ_LIST: "To-Read",
+	FAVORITE_LIST: "Favorite",
+}
 
 const CreateSelectFavoriteToRead = () => {
+	const { set_LIST_TO_SHOW } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
 		switch (e.target.value) {
-			case "All":
+			case SHOW_LIST.ALL_LIST:
 				dispatch(setNewCurrentPage(1));
-				dispatch(showAllFilms());
+				set_LIST_TO_SHOW(e.target.value);
 				break;
-			case "To-Read":
+			case SHOW_LIST.TO_READ_LIST:
 				dispatch(setNewCurrentPage(1));
-				dispatch(showToReadFilms());
+				set_LIST_TO_SHOW(e.target.value);
 				break;
-			case "Favorite":
+			case SHOW_LIST.FAVORITE_LIST:
 				dispatch(setNewCurrentPage(1));
-				dispatch(showFavoriteFilms());
+				set_LIST_TO_SHOW(e.target.value);
 				break;
 			default: alert("Это не выполняется")
 		}
@@ -27,9 +36,9 @@ const CreateSelectFavoriteToRead = () => {
 			<div className="select-header"><small>Сохраненные:</small></div>
 
 			<select id="Select-FavoriteToRead" className="select-item" onChange={doSort}>
-				<option value="All">Все</option>
-				<option value="To-Read">Смотреть позже</option>
-				<option value="Favorite">Избранные</option>
+				<option value={SHOW_LIST.ALL_LIST}>Все</option>
+				<option value={SHOW_LIST.TO_READ_LIST}>Смотреть позже</option>
+				<option value={SHOW_LIST.FAVORITE_LIST}>Избранные</option>
 			</select>
 		</>
 	)

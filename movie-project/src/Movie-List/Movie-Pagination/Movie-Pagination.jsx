@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewCurrentPage } from "../../Redux/actions";
+import { setNewCurrentPage } from "../../redux/actions";
 
 
 const CreatePagination = ({ FilmsList }) => {

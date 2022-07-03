@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { logOut } from "./Redux/actions";
+import { logOut } from "./redux/actions";
 
 
 const CreateHeader = ({ setFormAuthorization }) => {

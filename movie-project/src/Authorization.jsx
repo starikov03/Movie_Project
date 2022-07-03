@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { logIn } from "./Redux/actions";
+import { logIn } from "./redux/actions";
 import { LOG_IN_DATA } from "./Consts";
 
 const CreateAuthorizationForm = ({ setFormAuthorization }) => {
