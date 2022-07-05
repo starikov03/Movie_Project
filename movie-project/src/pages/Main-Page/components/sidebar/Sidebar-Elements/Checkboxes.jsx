@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
-import { setNewCurrentPage } from "../../redux/actions";
-import { addActiveGener, deleteActiveGener } from "../../redux/actions";
+import { addActiveGener, deleteActiveGener,  setNewCurrentPage } from "../../../../../redux/actions";
 import { useContext } from "react";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../Main-Page";
 
 
 const CreateCheckbox = ({ index, item }) => {

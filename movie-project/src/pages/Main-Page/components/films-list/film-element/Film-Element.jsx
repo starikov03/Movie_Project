@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewCurrentPage } from '../../redux/actions';
-import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList } from '../../redux/actions';
+import { Link } from 'react-router-dom';
+import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList, setNewCurrentPage, formAuthorizationOpen } from '../../../../../redux/actions';
 import { useContext } from "react";
-import { MyContext } from "../../App";
+import { MyContext } from '../../../Main-Page';
 
-const CreateFilmElement = ({ index, item, setFormAuthorization, favotiteFilmsList, toReadFilmsList }) => {
+
+
+const CreateFilmElement = ({ index, item, favotiteFilmsList, toReadFilmsList }) => {
 	const { setNewFavoriteToReadList } = useContext(MyContext);
 	const dispatch = useDispatch();
 	const isAuthorized = useSelector(state => state.isAuthorized);
@@ -45,11 +47,11 @@ const CreateFilmElement = ({ index, item, setFormAuthorization, favotiteFilmsLis
 				<div className="user">
 					<button className={(JSON.stringify(toReadFilmsList).includes(JSON.stringify(item), 0)) ?
 						'to-read__btn to-read__btn--active' : 'to-read__btn'}
-						onClick={() => { (isAuthorized) ? handleClickToRead() : setFormAuthorization({ isFormOpen: true }) }}>
+						onClick={() => { (isAuthorized) ? handleClickToRead() : dispatch(formAuthorizationOpen()) }}>
 					</button>
 					<button className={(JSON.stringify(favotiteFilmsList).includes(JSON.stringify(item), 0)) ?
 						'favorite__btn favorite__btn--active' : 'favorite__btn'}
-						onClick={() => { (isAuthorized) ? handleClickFavorite() : setFormAuthorization({ isFormOpen: true }) }}>
+						onClick={() => { (isAuthorized) ? handleClickFavorite() : dispatch(formAuthorizationOpen()) }}>
 					</button>
 					<div className="film-info">
 						<h5>Рейтинг: {item.vote_average}</h5>
@@ -57,7 +59,9 @@ const CreateFilmElement = ({ index, item, setFormAuthorization, favotiteFilmsLis
 					</div>
 				</div>
 			</div>
-			<button className="film-info_btn">Подробнее</button>
+			<Link to={`/film/${item.id}`}>
+				<button className="film-info_btn">Подробнее</button>
+			</Link>
 		</div>
 	);
 }

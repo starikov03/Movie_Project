@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { setNewCurrentPage } from "../../redux/actions";
+import { setNewCurrentPage } from "../../../../../redux/actions";
 import { useContext } from "react";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../Main-Page";
 
 const SHOW_LIST = {
 	ALL_LIST: "All",

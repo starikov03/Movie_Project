@@ -11,6 +11,8 @@ export const ADD_FAVORITE_LIST = 'ADD_FAVORITE_LIST';
 export const REMOVE_FAVORITE_LIST = 'REMOVE_FAVORITE_LIST';
 export const ADD_TO_READ_LIST = 'ADD_TO_READ_LIST';
 export const REMOVE_TO_READ_LIST = 'REMOVE_TO_READ_LIST';
+export const FORM_AUTHORIZATION_OPEN = "FORM_AUTHORIZATION_OPEN";
+export const FORM_AUTHORIZATION_CLOSE = "FORM_AUTHORIZATION_CLOSE";
 
 
 
@@ -64,6 +66,14 @@ export function addToReadList(filmObject) {
 
 export function removeToReadList(filmObject) {
   return { type: REMOVE_TO_READ_LIST, filmObject };
+}
+
+export function formAuthorizationOpen() {
+  return { type: FORM_AUTHORIZATION_OPEN }
+}
+
+export function formAuthorizationClose() {
+  return { type: FORM_AUTHORIZATION_CLOSE }
 }
 
 

@@ -1,19 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { logOut } from "./redux/actions";
+import { logOut } from "../redux/actions";
+import { Link } from 'react-router-dom';
+import { formAuthorizationOpen } from '../redux/actions';
 
 
-const CreateHeader = ({ setFormAuthorization }) => {
+const CreateHeader = () => {
 	const dispatch = useDispatch();
 	const isAuthorized = useSelector(state => state.isAuthorized);
 
 
 	return (
 		<>
-			<div className="header">
+			
 
+			<header>
+			<div className="header">
 				<div className="menubar">
 					<ul className="menu">
-						<li className="selected"><a href="index.html">Главная</a></li>
+						<li className="selected"><Link to="/">Главная</Link></li>
 						<li><a href="films.html">Фильмы</a></li>
 						<li><a href="#">Сериалы</a></li>
 						<li><a href="rating.html">Рейтинг фильмов</a></li>
@@ -21,11 +25,12 @@ const CreateHeader = ({ setFormAuthorization }) => {
 						{(isAuthorized) ?
 							<button className="Logout_btn" onClick={() => { dispatch(logOut()) }}>Log out</button>
 							:
-							<button className="Login_btn" onClick={() => { setFormAuthorization({ isFormOpen: true }) }}>Log in</button>}
+							<button className="Login_btn" onClick={() => { dispatch(formAuthorizationOpen()) }}>Log in</button>}
 					</ul>
 				</div>
 
 			</div>
+			</header>
 		</>
 	);
 }

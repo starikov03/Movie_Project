@@ -67,10 +67,10 @@ ul li {
   font-size: 0.8em;
   margin-left: 0px;
   margin-right: 0px;
-  min-width: 1020px;
+  min-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
 }
 
 /*------------------------------------------------ LOGIN FORM --------------------------------------------------*/
@@ -338,7 +338,7 @@ ul.menu li a:hover {
 }
 
 .site_content {
-  width: 1060px;
+  width: 1100px;
   overflow: hidden;
   margin: 20px auto 0 auto;
   background-color: transparent;
@@ -347,17 +347,17 @@ ul.menu li a:hover {
 .sidebar_container {
   float: right;
   width: 300px;
+
 }
 
 .sidebar {
   float: right;
   width: 230px;
   padding: 5%;
-  margin: 15px 15px 15px 0px;
-  border: solid 1px #f2f2f2;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin: 15px 15px 0px 0px;
+  border: solid 1px #000000;
+  border-radius: 10px;
+  background-color: #fff
 }
 
 .sidebar_header {
@@ -518,8 +518,8 @@ ul.menu li a:hover {
 
 .content {
   text-align: left;
-  width: 720px;
-  padding: 0 0 0 10px;
+  width: 790px;
+  
   float: right;
 }
 
@@ -528,14 +528,15 @@ ul.menu li a:hover {
 }
 
 
-.content_header{
- 
+.content_header {
   height: 200px;
   background-color: transparent;
   border-radius: 10px;
   border: 1px solid #000000;
   margin-right: 15px;
+  margin-left: 15px;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 .films_block {
@@ -551,9 +552,9 @@ ul.menu li a:hover {
   margin: 15px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  width: 330px;
+  width: 365px;
   font-size: large;
 }
 
@@ -573,7 +574,7 @@ ul.menu li a:hover {
   text-align: left;
 }
 
-.card-title{
+.card-title {
   height: 40px;
   font-size: 17px;
   color: #000;
@@ -585,7 +586,6 @@ ul.menu li a:hover {
   margin: auto 0px auto 0px;
   text-align: left;
 }
-
 
 
 .user {
@@ -664,145 +664,6 @@ small {
 }
 
 
-/* Страница просмотра фильма */
-
-.info_film_page {
-  margin-top: 2%;
-  margin-bottom: 4%;
-}
-
-.info_film_page .label {
-  font-size: 1.2em;
-}
-
-.info_film_page .value {
-  font-size: 1em;
-  color: #49945A;
-  margin-right: 3%;
-}
-
-.descriptions_film {
-  margin-bottom: 15%;
-}
-
-.descriptions_film img {
-  float: left;
-  margin-right: 2%;
-  border-radius: 5px;
-  border: solid 5px #dad7d5;
-}
-
-.reviews {
-  margin-bottom: 4%;
-  font-size: 0.9em;
-}
-
-.reviews .review_name {
-  background-color: #7268AD;
-  color: white;
-  padding: 1%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.reviews .review_text {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 2%;
-}
-
-.send {
-  margin-bottom: 4%;
-}
-
-.send input[type="text"],
-textarea {
-  border: solid 1px #C3C3C3;
-  margin-bottom: 2%;
-}
-
-.send input[type="text"] {
-  width: 98%;
-}
-
-.send textarea {
-  width: 624px;
-  height: 200px;
-}
-
-.send input[type="submit"] {
-  background-color: #7268AD;
-  padding: 3%;
-  color: white;
-  border-radius: 5px;
-}
-
-
-
-.send_contact input[type="text"] {
-  width: 500px;
-}
-
-.send_contact textarea {
-  width: 516px;
-}
-
-
-
-.info_film {
-  margin-bottom: 5%;
-  background-color: #f9f9f9;
-  padding: 5%;
-  height: 270px;
-}
-
-.info_film img {
-  float: left;
-  margin-right: 2%;
-  border-radius: 5px;
-  border: solid 5px #dad7d5;
-  width: 25%;
-}
-
-.button {
-  background-color: #7268ad;
-  padding: 2%;
-  color: white;
-  border-radius: 5px;
-  float: right;
-  margin-top: 5%;
-  clear: both;
-  font-size: 0.8em;
-}
-
-.button a {
-  color: white;
-}
-
-
-table {
-  width: 100%;
-  border: solid 1px #f4f4f4;
-}
-
-td {
-  padding: 2%;
-  border: solid 1px #f4f4f4;
-}
-
-td img {
-  width: 60px;
-  vertical-align: middle;
-}
-
-.center {
-  text-align: center;
-}
-
-.rating {
-  font-weight: bold;
-}
-
 .pagination-block {
   width: 100%;
   background-color: transparent;
@@ -821,7 +682,7 @@ td img {
 
 .pagination-btns {
   display: inline-block;
-  width: 65%;
+  width: 68%;
   text-align: right;
 }
 
@@ -870,15 +731,16 @@ td img {
 }
 
 .footer {
-  width: 1060px;
-  height: 100px;
+  width: 1100px;
+  height: 150px;
   padding: 28px 0 5px 0;
   text-align: center;
   background-color: #1F1F1F;
   color: #a8aa94;
   margin: 0px auto 0 auto;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  margin-bottom: 10px;
 }
 
 .footer a {
@@ -893,6 +755,187 @@ td img {
 
 .footer p {
   padding: 0 0 10px 0;
+}
+
+/* ------------------------------------------------ Страница просмотра фильма -------------------------------------------*/
+
+.film-page_container {
+  width: 1100px;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+.film-page_content {
+  margin: 0% 4% 4% 4%;
+  padding: 0% 5% 5% 5%;
+  border-radius: 10px;
+}
+
+.film-page_content h2 {
+  font-weight: bold;
+}
+
+.content_header-filmPage {
+  height: 150px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.action-todo {
+  width: 100%;
+  background-color: #e4ec04;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: medium;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.info_film_page {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.info_film_page .label {
+  font-weight: bold;
+}
+
+.info_film_page .value {
+  font-size: 1em;
+  font-weight: normal;
+  margin-right: 3%;
+}
+
+.descriptions_film {
+  margin-top: 2%;
+  min-height: 320px;
+}
+
+.descriptions_film img {
+  float: left;
+  margin-right: 2%;
+  border-radius: 10px;
+  height: 320px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+iframe {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+
+.reviews {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  font-size: 0.9em;
+}
+
+.reviews .review_name {
+  background-color: #1F1F1F;
+  color: white;
+  padding: 1%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.reviews .review_text {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  border: 1px solid #000000;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+.review_name-input {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+}
+
+.review_text-input {
+  width: 100%;
+  height: 100px;
+
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+ 
+}
+
+.btn{
+  
+  border: 1px solid #000000;
+}
+
+
+
+.info_film {
+  margin-bottom: 5%;
+  background-color: #f9f9f9;
+  padding: 5%;
+  height: 270px;
+}
+
+.info_film img {
+  float: left;
+  margin-right: 2%;
+  border-radius: 5px;
+  border: solid 5px #dad7d5;
+  width: 25%;
+}
+
+
+.button {
+  background-color: #7268ad;
+  padding: 2%;
+  color: white;
+  border-radius: 5px;
+  float: right;
+  margin-top: 5%;
+  clear: both;
+  font-size: 0.8em;
+}
+
+.button a {
+  color: white;
+}
+
+
+table {
+  width: 100%;
+  border: solid 1px #f4f4f4;
+}
+
+td {
+  padding: 2%;
+  border: solid 1px #f4f4f4;
+}
+
+td img {
+  width: 60px;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+.rating {
+  font-weight: bold;
 }
 
 
@@ -1024,11 +1067,11 @@ td img {
     padding: 0 0 0 0px;
   }
 
-  .content_header{
-      margin-left: 40px;
-      margin-right: 40px;
-      margin-bottom: 10px;
-      margin-top: 10px;
+  .content_header {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .site_content {
@@ -1039,6 +1082,12 @@ td img {
 
   .sidebar_container {
     display: none;
+  }
+
+  .card{
+    width: 350px;
+    text-align: left;
+    margin: 0px 0px 15px 0px;
   }
 
   .pagination-block {

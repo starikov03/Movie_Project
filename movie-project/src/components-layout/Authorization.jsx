@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { logIn } from "./redux/actions";
-import { LOG_IN_DATA } from "./Consts";
+import { logIn } from "../redux/actions";
+import { LOG_IN_DATA } from "../Consts";
+import { formAuthorizationClose } from "../redux/actions";
 
-const CreateAuthorizationForm = ({ setFormAuthorization }) => {
+const CreateAuthorizationForm = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const CreateAuthorizationForm = ({ setFormAuthorization }) => {
 	const loginVerification = (e) => {
 		if (LOG_IN_DATA.username === username && LOG_IN_DATA.password === password) {
 			dispatch(logIn());
-			setFormAuthorization({ isFormOpen: false });
+			dispatch(formAuthorizationClose());
 			e.preventDefault();
 		} else {
 			alert("Не правельный логин или пароль");
@@ -25,7 +26,7 @@ const CreateAuthorizationForm = ({ setFormAuthorization }) => {
 			<div className="modal-sandbox"></div>
 			<div className="modal-box">
 				<div className="modal-body">
-					<div className="close-modal-1" onClick={() => { setFormAuthorization({ isFormOpen: false }) }}>&#10006;</div>
+					<div className="close-modal-1" onClick={() => { dispatch(formAuthorizationClose()); }}>&#10006;</div>
 					<form className="form" onSubmit={loginVerification}>
 						<h3>Войти в аккаунт</h3>
 

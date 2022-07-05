@@ -6,9 +6,9 @@ import {
 	sortRatingDescendingList,
 	sortRatingAscendingList,
 	setNewCurrentPage,
-} from "../../redux/actions";
+} from "../../../../../redux/actions";
 import { useContext } from "react";
-import { MyContext } from "../../App";
+import { MyContext } from "../../../Main-Page";
 
 const CreateSelectPopularityElement = () => {
 	const { sortAll } = useContext(MyContext);

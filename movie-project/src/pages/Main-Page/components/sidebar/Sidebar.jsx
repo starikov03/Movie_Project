@@ -1,4 +1,4 @@
-import { CHECKBOXES } from "../Consts";
+import { CHECKBOXES } from "../../../../Consts";
 import { CreateSelectPopularityElement } from "./Sidebar-Elements/Select-Popularity";
 import { CreateSelectYearElement } from "./Sidebar-Elements/Select-Year";
 import { CreateCheckbox } from "./Sidebar-Elements/Checkboxes";
@@ -42,6 +42,9 @@ const CreateSidebar = ({ resetFilters }) => {
 
 			</div>
 
+
+			<div className="sidebar"></div>
+			
 
 			<div className="sidebar">
 				<h2>Новости</h2>
