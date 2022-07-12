@@ -14,6 +14,11 @@ Site Features:
 
 There are also many additional features, but you need to see them by yourself)
 
+Plans:
+1. Rewrite the site to Typescripte
+2. Perform additional refactoring
+3. Finish UI
+
 Home page:
 
 ![image](https://user-images.githubusercontent.com/93431655/178475977-9e1681cf-7d86-49fe-a049-1ebe1ce115a5.png)
