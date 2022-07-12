@@ -1,5 +1,16 @@
 # Movie_Project
 
+Technology:
+JavaScript
+React
+Redux
+TypeScript
+React Router
+ESLint
+Prettier
+Rewire-alias
+
+
 Site Features:
 1. Pagination of films pages.
 2. Ability to filter by descending and ascending rating of the film.
