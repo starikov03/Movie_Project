@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setNewCurrentPage } from "../../../../../redux/actions";
+import { setNewCurrentPage } from "@redux/actions";
 import { useContext } from "react";
 import { MyContext } from "../../../Main-Page";
 
@@ -10,22 +10,22 @@ const SHOW_LIST = {
 }
 
 const CreateSelectFavoriteToRead = () => {
-	const { set_LIST_TO_SHOW } = useContext(MyContext);
+	const { setNewListToShow } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
 		switch (e.target.value) {
 			case SHOW_LIST.ALL_LIST:
 				dispatch(setNewCurrentPage(1));
-				set_LIST_TO_SHOW(e.target.value);
+				setNewListToShow(e.target.value);
 				break;
 			case SHOW_LIST.TO_READ_LIST:
 				dispatch(setNewCurrentPage(1));
-				set_LIST_TO_SHOW(e.target.value);
+				setNewListToShow(e.target.value);
 				break;
 			case SHOW_LIST.FAVORITE_LIST:
 				dispatch(setNewCurrentPage(1));
-				set_LIST_TO_SHOW(e.target.value);
+				setNewListToShow(e.target.value);
 				break;
 			default: alert("Это не выполняется")
 		}

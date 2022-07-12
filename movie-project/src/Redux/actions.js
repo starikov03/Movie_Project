@@ -13,6 +13,8 @@ export const ADD_TO_READ_LIST = 'ADD_TO_READ_LIST';
 export const REMOVE_TO_READ_LIST = 'REMOVE_TO_READ_LIST';
 export const FORM_AUTHORIZATION_OPEN = "FORM_AUTHORIZATION_OPEN";
 export const FORM_AUTHORIZATION_CLOSE = "FORM_AUTHORIZATION_CLOSE";
+export const SORT_FAVORITE_LIST = "SORT_FAVORITE_LIST";
+export const SORT_TO_READ_LIST = "SORT_TO_READ_LIST";
 
 
 
@@ -74,6 +76,14 @@ export function formAuthorizationOpen() {
 
 export function formAuthorizationClose() {
   return { type: FORM_AUTHORIZATION_CLOSE }
+}
+
+export function sortFavoriteList(sortedList) {
+  return { type: SORT_FAVORITE_LIST, sortedList }
+}
+
+export function sortToReadList(sortedList) {
+  return { type: SORT_TO_READ_LIST, sortedList }
 }
 
 

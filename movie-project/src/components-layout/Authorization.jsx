@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { logIn } from "../redux/actions";
-import { LOG_IN_DATA } from "../Consts";
-import { formAuthorizationClose } from "../redux/actions";
+import { logIn } from "@redux/actions";
+import { LOG_IN_DATA } from "@constants/Constants";
+import { formAuthorizationClose } from "@redux/actions";
 
 const CreateAuthorizationForm = () => {
 	const [username, setUsername] = useState('');
@@ -22,26 +22,26 @@ const CreateAuthorizationForm = () => {
 
 
 	return (
-		<div className="modal" id="modal-name">
-			<div className="modal-sandbox"></div>
-			<div className="modal-box">
-				<div className="modal-body">
+		<div className="modal" id="modal-name" >
+			<div className="modal-sandbox" ></div>
+			<div className="wrapper fadeInDown">
+				<div id="formContent">
 					<div className="close-modal-1" onClick={() => { dispatch(formAuthorizationClose()); }}>&#10006;</div>
-					<form className="form" onSubmit={loginVerification}>
-						<h3>Войти в аккаунт</h3>
+					<h2 className="active"> Sign In </h2>
+					<h2 className="inactive underlineHover">Sign Up </h2>
 
-						<label >Логин</label>
-						<input type="text" placeholder="логин" id="username" onChange={(e) => { setUsername(e.target.value) }} />
 
-						<label >Пароль</label>
-						<input type="password" placeholder="пароль" id="password" onChange={(e) => { setPassword(e.target.value) }} />
-
-						<button type="submit">Войти</button>
-						<div className="social">
-							<div className="go"><i className="fab fa-google"></i>  Google</div>
-							<div className="fb"><i className="fab fa-facebook"></i>  Facebook</div>
-						</div>
+					<form onSubmit={loginVerification}>
+						<input type="text" id="login" className="fadeIn second" name="login" placeholder="login"
+							onChange={(e) => { setUsername(e.target.value) }} />
+						<input type="text" id="password" className="fadeIn third" name="login" placeholder="password"
+							onChange={(e) => { setPassword(e.target.value) }} />
+						<input type="submit" className="fadeIn fourth" value="Log In" />
 					</form>
+
+					<div id="formFooter">
+						<a className="underlineHover" href="index.html">Forgot Password?</a>
+					</div>
 				</div>
 			</div>
 		</div>

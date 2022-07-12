@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewCurrentPage } from "../../../../../redux/actions";
+import { setNewCurrentPage } from "@redux/actions";
 
 
 const CreatePagination = ({ FilmsList }) => {
@@ -35,7 +35,7 @@ const CreatePagination = ({ FilmsList }) => {
 				<button className="Next-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage + 1)) }}>Вперед</button>
 			</div>
 			<hr />
-			{(FilmsList[0]) ? <small>{currentPage} из {countPages}</small> : <small>Фильмы не найдены</small>}
+			{(FilmsList.length) ? <small>{currentPage} из {countPages}</small> : <small>Фильмы не найдены</small>}
 		</div>
 	);
 }

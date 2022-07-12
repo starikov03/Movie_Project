@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
-import { addActiveGener, deleteActiveGener,  setNewCurrentPage } from "../../../../../redux/actions";
-import { useContext } from "react";
+import { addActiveGener, deleteActiveGener,  setNewCurrentPage } from "@redux/actions";
+import { useContext, memo } from "react";
 import { MyContext } from "../../../Main-Page";
 
 
-const CreateCheckbox = ({ index, item }) => {
+const CreateCheckboxInner = ({ index, item }) => {
 	const { setNewActiveGeners } = useContext(MyContext);
 	const dispatch = useDispatch();
 
@@ -19,16 +19,13 @@ const CreateCheckbox = ({ index, item }) => {
 	}
 
 	return (
-
 		<div key={index} className="checkbox">
 			<label className="custom-checkbox">
 				<input type="checkbox" className="checkbox_input" name="color-1" value={item.id} onChange={onSelected} />
 				<span>{item.name}</span>
 			</label>
 		</div>
-
-
 	)
 }
 
-export { CreateCheckbox };
+export const CreateCheckbox = memo(CreateCheckboxInner);

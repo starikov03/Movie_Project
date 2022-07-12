@@ -1,9 +1,9 @@
 import { useDispatch, } from "react-redux";
-import { setNewCurrentPage } from "../../../../../redux/actions";
-import { useContext } from "react";
+import { setNewCurrentPage } from "@redux/actions";
+import { useContext, memo } from "react";
 import { MyContext } from "../../../Main-Page";
 
-const CreateSelectYearElement = () => {
+const CreateSelectYearElementInner = () => {
 	const { setNewCurrentYear } = useContext(MyContext);
 	const dispatch = useDispatch();
 
@@ -28,4 +28,4 @@ const CreateSelectYearElement = () => {
 	);
 }
 
-export { CreateSelectYearElement };
+export const CreateSelectYearElement = memo(CreateSelectYearElementInner);

@@ -1,4 +1,3 @@
-
 import { useDispatch } from "react-redux";
 import {
 	sortPopularityDescendingList,
@@ -6,7 +5,7 @@ import {
 	sortRatingDescendingList,
 	sortRatingAscendingList,
 	setNewCurrentPage,
-} from "../../../../../redux/actions";
+} from "@redux/actions";
 import { useContext } from "react";
 import { MyContext } from "../../../Main-Page";
 

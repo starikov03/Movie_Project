@@ -1,32 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList, setNewCurrentPage, formAuthorizationOpen } from '../../../../../redux/actions';
-import { useContext } from "react";
-import { MyContext } from '../../../Main-Page';
+import { memo } from 'react';
+import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList, formAuthorizationOpen } from '@redux/actions';
 
 
-
-const CreateFilmElement = ({ index, item, favotiteFilmsList, toReadFilmsList }) => {
-	const { setNewFavoriteToReadList } = useContext(MyContext);
+const CreateFilmElementInner = ({ index, item }) => {
 	const dispatch = useDispatch();
 	const isAuthorized = useSelector(state => state.isAuthorized);
+	const favotiteFilmsList = useSelector(state => state.FAVORITE_LIST);
+	const toReadFilmsList = useSelector(state => state.TO_READ_LIST);
+	const isSavedFavorite = JSON.stringify(favotiteFilmsList).includes(JSON.stringify(item));
+	const isSavedToRead = JSON.stringify(toReadFilmsList).includes(JSON.stringify(item));
 
 
 	const handleClickToRead = () => {
-		if (toReadFilmsList.includes(item, 0)) {
-			setNewFavoriteToReadList(removeToReadList(item))
-			dispatch(setNewCurrentPage(1));
+		if (isSavedToRead) {
+			dispatch(removeToReadList(item))
 		} else {
-			setNewFavoriteToReadList(addToReadList(item))
+			dispatch(addToReadList(item))
 		}
 	}
 
 	const handleClickFavorite = () => {
-		if (favotiteFilmsList.includes(item, 0)) {
-			setNewFavoriteToReadList(removeFavoriteList(item))
-			dispatch(setNewCurrentPage(1));
+		if (isSavedFavorite) {
+			dispatch(removeFavoriteList(item))
 		} else {
-			setNewFavoriteToReadList(addFavoriteList(item))
+			dispatch(addFavoriteList(item))
 		}
 	}
 
@@ -45,12 +44,10 @@ const CreateFilmElement = ({ index, item, favotiteFilmsList, toReadFilmsList }) 
 					{`${item.overview.substring(0, 150)}...`}
 				</span>
 				<div className="user">
-					<button className={(JSON.stringify(toReadFilmsList).includes(JSON.stringify(item), 0)) ?
-						'to-read__btn to-read__btn--active' : 'to-read__btn'}
+					<button className={(isSavedToRead) ? 'to-read__btn to-read__btn--active' : 'to-read__btn'}
 						onClick={() => { (isAuthorized) ? handleClickToRead() : dispatch(formAuthorizationOpen()) }}>
 					</button>
-					<button className={(JSON.stringify(favotiteFilmsList).includes(JSON.stringify(item), 0)) ?
-						'favorite__btn favorite__btn--active' : 'favorite__btn'}
+					<button className={(isSavedFavorite) ? 'favorite__btn favorite__btn--active' : 'favorite__btn'}
 						onClick={() => { (isAuthorized) ? handleClickFavorite() : dispatch(formAuthorizationOpen()) }}>
 					</button>
 					<div className="film-info">
@@ -66,4 +63,4 @@ const CreateFilmElement = ({ index, item, favotiteFilmsList, toReadFilmsList }) 
 	);
 }
 
-export { CreateFilmElement };
+export const CreateFilmElement = memo(CreateFilmElementInner);

@@ -1,17 +1,49 @@
 import { useParams } from 'react-router-dom';
-import { FILMS_ALL } from "../Consts"
+import { useSelector, useDispatch } from 'react-redux';
+import { FILMS_ALL } from "@constants/Constants";
+import { removeToReadList, removeFavoriteList, addFavoriteList, addToReadList, formAuthorizationOpen } from '@redux/actions';
 
 const FilmPage = () => {
 	const { filmId } = useParams();
-
 	const currentFilm = FILMS_ALL.find(item => item.id == filmId);
+	const dispatch = useDispatch();
+	const isAuthorized = useSelector(state => state.isAuthorized);
+	const favotiteFilmsList = useSelector(state => state.FAVORITE_LIST);
+	const toReadFilmsList = useSelector(state => state.TO_READ_LIST);
+	const isSavedFavorite = JSON.stringify(favotiteFilmsList).includes(JSON.stringify(currentFilm));
+	const isSavedToRead = JSON.stringify(toReadFilmsList).includes(JSON.stringify(currentFilm));
+
+
+	const handleClickToRead = () => {
+		if (isSavedToRead) {
+			dispatch(removeToReadList(currentFilm))
+		} else {
+			dispatch(addToReadList(currentFilm))
+		}
+	}
+
+	const handleClickFavorite = () => {
+		if (isSavedFavorite) {
+			dispatch(removeFavoriteList(currentFilm))
+		} else {
+			dispatch(addFavoriteList(currentFilm))
+		}
+	}
+
 
 	return (
 		<div className="film-page_container">
 
 			<div className='film-page_content'>
 
-
+			<div className="user-filmPage">
+					<button className={(isSavedToRead) ? 'to-read__btn to-read__btn--active' : 'to-read__btn'}
+						onClick={() => { (isAuthorized) ? handleClickToRead() : dispatch(formAuthorizationOpen()) }}>
+					</button>
+					<button className={(isSavedFavorite) ? 'favorite__btn favorite__btn--active' : 'favorite__btn'}
+						onClick={() => { (isAuthorized) ? handleClickFavorite() : dispatch(formAuthorizationOpen()) }}>
+					</button>
+				</div>
 
 				<h2>{currentFilm.title}</h2>
 
@@ -28,43 +60,11 @@ const FilmPage = () => {
 				</div>
 
 				<div className="action-todo">
-				Понравился сайт? Добавь себе его в закладки браузера через <strong>Ctrl+D</strong>.
-				</div>
-
-				<div className="content_header-filmPage">
+					Понравился сайт? Добавь себе его в закладки браузера через <strong>Ctrl+D</strong>.
 				</div>
 
 				<iframe width="100%" height="500" src="https://www.youtube.com/embed/R5KHoE_8dgo?showinfo=0"
 					frameBorder="0" allowFullScreen ></iframe>
-					<hr />
-
-
-				<div className="reviews">
-					<h2>Отзывы об Интерстеллар</h2>
-					<div className="review_name">
-						Сергей
-					</div>
-					<div className="review_text">
-						Отличный фильм, 3 часа пролетели не заметно.
-					</div>
-				</div>
-
-				<div className="reviews">
-					<div className="review_name">
-						Дмитрий
-					</div>
-					<div className="review_text">
-						После фильма Начало, я с не терпением ждал еще работ от Кристофера Нолана. Интерстеллар меня впечатлил.
-					</div>
-				</div>
-
-				
-					<form className="review">
-						<input type="text" className="review_name-input" placeholder="Ваше имя" />
-						<textarea className="review_text-input" placeholder="Оставьте ваш отзыв"/>
-						<button className="btn" type="submit">Отправить</button>
-					</form>
-				
 
 			</div>
 

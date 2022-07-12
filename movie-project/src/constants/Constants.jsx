@@ -4143,6 +4143,14 @@ export const CHECKBOXES = [
 	}
 ]
 
+export const DEFAULT_AUTHORIZATION_STATUS = JSON.parse(sessionStorage.getItem('isAuthorized')) ?? false;
+
+export const DEFAULT_FAVORITE_LIST = JSON.parse(localStorage.getItem('favoriteFilms'))
+	.sort((a, b) => a.popularity < b.popularity ? 1 : -1) ?? [];
+	
+export const DEFAULT_TO_READ_LIST = JSON.parse(localStorage.getItem('toReadFilms'))
+	.sort((a, b) => a.popularity < b.popularity ? 1 : -1) ?? [];
+
 export const LOG_IN_DATA = {
 	username: 'antonstrkv',
 	password: '1234',
