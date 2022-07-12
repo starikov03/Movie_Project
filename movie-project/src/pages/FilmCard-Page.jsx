@@ -36,7 +36,7 @@ const FilmPage = () => {
 
 			<div className='film-page_content'>
 
-			<div className="user-filmPage">
+				<div className="user-filmPage">
 					<button className={(isSavedToRead) ? 'to-read__btn to-read__btn--active' : 'to-read__btn'}
 						onClick={() => { (isAuthorized) ? handleClickToRead() : dispatch(formAuthorizationOpen()) }}>
 					</button>
@@ -50,17 +50,17 @@ const FilmPage = () => {
 				<div className="descriptions_film">
 					<img src={`https://image.tmdb.org/t/p/w500/${currentFilm.poster_path}`} />
 					<div className="info_film_page">
-						<div className="label">Статус: <span className="value">Released</span></div>
-						<div className="label">Рейтинг <span className="value">{currentFilm.vote_average} / 10</span></div>
-						<div className="label">Дата выхода: <span className="value">{currentFilm.release_date}</span></div>
-						<div className="label">Продолжительность: <span className="value">117 минут</span></div>
-						<div className="label">Язык оригинала: <span className="value">{currentFilm.original_language}</span></div>
-						<div className="label">Описание: <span className="value">{currentFilm.overview}</span></div>
+						<div className="label">Status: <span className="value">Released</span></div>
+						<div className="label">Rating: <span className="value">{currentFilm.vote_average} / 10</span></div>
+						<div className="label">Release date: <span className="value">{currentFilm.release_date}</span></div>
+						<div className="label">Time to watch: <span className="value">117 минут</span></div>
+						<div className="label">Original language: <span className="value">{currentFilm.original_language}</span></div>
+						<div className="label">Description: <span className="value">{currentFilm.overview}</span></div>
 					</div>
 				</div>
 
 				<div className="action-todo">
-					Понравился сайт? Добавь себе его в закладки браузера через <strong>Ctrl+D</strong>.
+					Liked the site? Add it to your browser bookmarks with <strong>Ctrl+D</strong>.
 				</div>
 
 				<iframe width="100%" height="500" src="https://www.youtube.com/embed/R5KHoE_8dgo?showinfo=0"

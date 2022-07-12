@@ -51,13 +51,13 @@ const CreateFilmElementInner = ({ index, item }) => {
 						onClick={() => { (isAuthorized) ? handleClickFavorite() : dispatch(formAuthorizationOpen()) }}>
 					</button>
 					<div className="film-info">
-						<h5>Рейтинг: {item.vote_average}</h5>
+						<h5>Rating: {item.vote_average}</h5>
 						<small>{item.release_date}</small>
 					</div>
 				</div>
 			</div>
 			<Link to={`/film/${item.id}`}>
-				<button className="film-info_btn">Подробнее</button>
+				<button className="film-info_btn">Read more</button>
 			</Link>
 		</div>
 	);

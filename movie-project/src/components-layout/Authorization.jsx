@@ -15,7 +15,7 @@ const CreateAuthorizationForm = () => {
 			dispatch(formAuthorizationClose());
 			e.preventDefault();
 		} else {
-			alert("Не правельный логин или пароль");
+			alert("Incorrect username or password");
 			e.preventDefault();
 		}
 	}

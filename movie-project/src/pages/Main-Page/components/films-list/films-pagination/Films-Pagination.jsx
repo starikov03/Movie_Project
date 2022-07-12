@@ -29,13 +29,13 @@ const CreatePagination = ({ FilmsList }) => {
 
 	return (
 		<div className="pagination-block">
-			<h1>Новые фильмы</h1>
+			<h1>New films</h1>
 			<div className="pagination-btns">
-				<button className="Previous-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage - 1)) }}>Назад</button>
-				<button className="Next-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage + 1)) }}>Вперед</button>
+				<button className="Previous-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage - 1)) }}>Previous</button>
+				<button className="Next-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage + 1)) }}>Next</button>
 			</div>
 			<hr />
-			{(FilmsList.length) ? <small>{currentPage} из {countPages}</small> : <small>Фильмы не найдены</small>}
+			{(FilmsList.length) ? <small>{currentPage} из {countPages}</small> : <small>Films not found</small>}
 		</div>
 	);
 }

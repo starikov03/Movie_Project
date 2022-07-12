@@ -40,21 +40,21 @@ const SearchPage = () => {
 
 				<div className="sidebar">
 					<div className="sidebar_header">
-						<h2>Фильтры:</h2>
+						<h2>Filters:</h2>
 						<hr />
 					</div>
 
-					<div className="select-header"><small>Рейтинг фильма:</small></div>
+					<div className="select-header"><small>Film rating:</small></div>
 					<select id="Select-Popularity" className="select-item" onChange={(e) => { setRating(e.target.value) }}>
-						<option value="High">Высокая</option>
-						<option value="Low">Низкая</option>
+						<option value="High">High</option>
+						<option value="Low">Low</option>
 					</select>
 
 
-					<div className="select-header"><small>Популярность фильма</small></div>
+					<div className="select-header"><small>Film popularity:</small></div>
 					<select id="Select-Popularity" className="select-item" onChange={(e) => { setPopularity(e.target.value) }}>
-						<option value="Popularity">Популярный</option>
-						<option value="Not-popularity">Не популярный</option>
+						<option value="Popularity">Popular</option>
+						<option value="Not-popularity">Not popular</option>
 					</select>
 
 
@@ -63,20 +63,20 @@ const SearchPage = () => {
 
 
 					<button className="sort-btn"
-						onClick={() => set_SORTED_FILMS(sortSearchPage(activeGeners, rating, popularity))}>Найти</button>
+						onClick={() => set_SORTED_FILMS(sortSearchPage(activeGeners, rating, popularity))}>Find</button>
 
 
 					<div className="search-btns">
 						{(currentFilm && !(SORTED_FILMS.length === currentFilmNumber + 1)) ?
-							<button className="Previous-search_btn" onClick={() => { setCurrentFilmNumber(currentFilmNumber + 1) }}>Не подходит</button>
+							<button className="Previous-search_btn" onClick={() => { setCurrentFilmNumber(currentFilmNumber + 1) }}>Next</button>
 							:
-							<button className="Previous-search_btn" disabled>Не подходит</button>}
+							<button className="Previous-search_btn" disabled>Next</button>}
 						{(currentFilm) ?
 							<Link to={`/film/${currentFilm.id}`}>
-								<button className="Next-search_btn" >Подходит</button>
+								<button className="Next-search_btn" >Read more</button>
 							</Link>
 							:
-							<button className="Next-search_btn" disabled>Подходит</button>}
+							<button className="Next-search_btn" disabled>Read more</button>}
 					</div>
 				</div>
 			</div>

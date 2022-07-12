@@ -27,18 +27,18 @@ const CreateSelectFavoriteToRead = () => {
 				dispatch(setNewCurrentPage(1));
 				setNewListToShow(e.target.value);
 				break;
-			default: alert("Это не выполняется")
+			default: alert("This does not work")
 		}
 	}
 
 	return (
 		<>
-			<div className="select-header"><small>Сохраненные:</small></div>
+			<div className="select-header"><small>Lists:</small></div>
 
 			<select id="Select-FavoriteToRead" className="select-item" onChange={doSort}>
-				<option value={SHOW_LIST.ALL_LIST}>Все</option>
-				<option value={SHOW_LIST.TO_READ_LIST}>Смотреть позже</option>
-				<option value={SHOW_LIST.FAVORITE_LIST}>Избранные</option>
+				<option value={SHOW_LIST.ALL_LIST}>All</option>
+				<option value={SHOW_LIST.TO_READ_LIST}>Watch later</option>
+				<option value={SHOW_LIST.FAVORITE_LIST}>Favorites</option>
 			</select>
 		</>
 	)

@@ -31,20 +31,20 @@ const CreateSelectPopularityElement = () => {
 				dispatch(setNewCurrentPage(1));
 				sortAll(sortRatingAscendingList());
 				break;
-			default: alert("Это не выполняется")
+			default: alert("This does not work")
 		}
 	}
 
 
 	return (
 		<>
-			<div className="select-header"><small>Сортировать по:</small></div>
+			<div className="select-header"><small>Sort by:</small></div>
 
 			<select id="Select-Popularity" className="select-item" onChange={doSort}>
-				<option value="Popularity-Descending">Популярные по убыванию</option>
-				<option value="Popularity-Ascending">Популярные по возрастанию</option>
-				<option value="Rating-Descending">Рейтинг по убыванию</option>
-				<option value="Rating-Ascending">Рейтинг по возрастанию</option>
+				<option value="Popularity-Descending">Popular descending</option>
+				<option value="Popularity-Ascending">Popular ascending</option>
+				<option value="Rating-Descending">Rating descending</option>
+				<option value="Rating-Ascending">Rating ascending</option>
 			</select>
 		</>
 	);

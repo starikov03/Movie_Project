@@ -16,13 +16,13 @@ const CreateHeader = () => {
 					<ul className="menu">
 						<NavLink className="menu-item" to="/">Home</NavLink>
 						<NavLink className="menu-item" to="/search">Search</NavLink>
-						<li className="inProgress" to="/">Сериалы</li>
-						<li className="inProgress" to="/">Рейтинг фильмов</li>
-						<li className="inProgress" to="/">Контакты</li>
+						<li className="inProgress" to="/">Series</li>
+						<li className="inProgress" to="/">Films rating</li>
+						<li className="inProgress" to="/">Contacts</li>
 						{(isAuthorized) ?
-							<button className="Logout_btn" onClick={() => { dispatch(logOut()) }}>Log out</button>
+							<button className="Logout_btn" onClick={() => { dispatch(logOut()) }}>Sign Out</button>
 							:
-							<button className="Login_btn" onClick={() => { dispatch(formAuthorizationOpen()) }}>Log in</button>}
+							<button className="Login_btn" onClick={() => { dispatch(formAuthorizationOpen()) }}>Sign In</button>}
 					</ul>
 				</div>
 

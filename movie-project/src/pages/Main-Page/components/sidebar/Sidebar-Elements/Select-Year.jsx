@@ -15,7 +15,7 @@ const CreateSelectYearElementInner = () => {
 
 	return (
 		<>
-			<div className="select-header"><small>Год релиза:</small></div>
+			<div className="select-header"><small>Release year:</small></div>
 
 			<select id="Select-Years" className="select-item" onChange={doSort}>
 				<option value="2020">2020</option>

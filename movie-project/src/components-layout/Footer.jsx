@@ -3,11 +3,11 @@ const CreateFooter = () => {
 		<div className="footer">
 			<div className="footer-social default-container">
 				<p>
-					<a href="index.html"> Главная</a> |
-					<a href="films.html"> Фильмы</a> |
-					<a href="#"> Сериалы</a> |
-					<a href="rating.html"> Рейтинг фильмов</a> |
-					<a href="contact.html"> Контакты</a>
+					<a href="index.html"> Home</a> |
+					<a href="films.html"> Search</a> |
+					<a href="#"> Series</a> |
+					<a href="rating.html"> Films rating</a> |
+					<a href="contact.html"> Contacts</a>
 				</p>
 				<p>Follow us via social media:</p>
 				<a href="#">

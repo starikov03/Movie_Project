@@ -16,11 +16,11 @@ const CreateSidebarFilters = () => {
 		<div className="sidebar">
 
 			<div className="sidebar_header">
-				<h2>Фильтры:</h2>
+				<h2>Filters:</h2>
 				<hr />
 			</div>
 
-			<button className="clear-filters_btn" onClick={() => resetFilters()}>Сбросить фильтры</button>
+			<button className="clear-filters_btn" onClick={() => resetFilters()}>Reset filters</button>
 
 			{(isAuthorized) ? <CreateSelectFavoriteToRead /> : ''}
 
