@@ -1,14 +1,6 @@
 # Movie_Project
 
-Technology:
-JavaScript
-React
-Redux
-TypeScript
-React Router
-ESLint
-Prettier
-Rewire-alias
+Technology: JavaScript, React, Redux, TypeScript, React Router, ESLint, Prettier, Rewire-alias
 
 
 Site Features:
