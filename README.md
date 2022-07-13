@@ -18,7 +18,7 @@ Site Features:
 There are also many additional features, but you need to see them by yourself)
 
 Plans:
-1. Rewrite the site to Typescripte
+1. Rewrite the site to Typescript
 2. Perform additional refactoring
 3. Finish UI
 
