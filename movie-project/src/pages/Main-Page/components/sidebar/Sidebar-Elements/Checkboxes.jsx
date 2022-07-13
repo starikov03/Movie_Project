@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addActiveGener, deleteActiveGener,  setNewCurrentPage } from "@redux/actions";
+import { addActiveGener, deleteActiveGener, setNewCurrentPage } from "@redux/actions";
 import { useContext, memo } from "react";
 import { MyContext } from "../../../Main-Page";
 

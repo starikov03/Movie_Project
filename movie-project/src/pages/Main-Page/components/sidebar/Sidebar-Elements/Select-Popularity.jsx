@@ -10,26 +10,26 @@ import { useContext } from "react";
 import { MyContext } from "../../../Main-Page";
 
 const CreateSelectPopularityElement = () => {
-	const { sortAll } = useContext(MyContext);
+	const { set_SORT_TYPE } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
 		switch (e.target.value) {
 			case "Popularity-Descending":
 				dispatch(setNewCurrentPage(1));
-				sortAll(sortPopularityDescendingList());
+				set_SORT_TYPE(sortPopularityDescendingList());
 				break;
 			case "Popularity-Ascending":
 				dispatch(setNewCurrentPage(1));
-				sortAll(sortPopularityAscendingList());
+				set_SORT_TYPE(sortPopularityAscendingList());
 				break;
 			case "Rating-Descending":
 				dispatch(setNewCurrentPage(1));
-				sortAll(sortRatingDescendingList());
+				set_SORT_TYPE(sortRatingDescendingList());
 				break;
 			case "Rating-Ascending":
 				dispatch(setNewCurrentPage(1));
-				sortAll(sortRatingAscendingList());
+				set_SORT_TYPE(sortRatingAscendingList());
 				break;
 			default: alert("This does not work")
 		}

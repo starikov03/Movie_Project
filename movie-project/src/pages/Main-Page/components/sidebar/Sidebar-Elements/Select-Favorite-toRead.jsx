@@ -10,22 +10,22 @@ const SHOW_LIST = {
 }
 
 const CreateSelectFavoriteToRead = () => {
-	const { setNewListToShow } = useContext(MyContext);
+	const { set_LIST_TO_SHOW } = useContext(MyContext);
 	const dispatch = useDispatch();
 
 	const doSort = (e) => {
 		switch (e.target.value) {
 			case SHOW_LIST.ALL_LIST:
 				dispatch(setNewCurrentPage(1));
-				setNewListToShow(e.target.value);
+				set_LIST_TO_SHOW(e.target.value);
 				break;
 			case SHOW_LIST.TO_READ_LIST:
 				dispatch(setNewCurrentPage(1));
-				setNewListToShow(e.target.value);
+				set_LIST_TO_SHOW(e.target.value);
 				break;
 			case SHOW_LIST.FAVORITE_LIST:
 				dispatch(setNewCurrentPage(1));
-				setNewListToShow(e.target.value);
+				set_LIST_TO_SHOW(e.target.value);
 				break;
 			default: alert("This does not work")
 		}

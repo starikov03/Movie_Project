@@ -4,22 +4,23 @@ import { useSelector } from 'react-redux';
 import { sortSelectedList } from "@utilities/sortFilms";
 
 const CreateFilmsList = (props) => {
-	const { listToShow, allFilmsList, currentYear, activeGeners } = props;
+	const { listToShow, allFilmsList, currentYear, activeGeners, sortType } = props;
 	const currentPage = useSelector(state => state.currentPage);
 	const favotiteFilmsList = useSelector(state => state.FAVORITE_LIST);
 	const toReadFilmsList = useSelector(state => state.TO_READ_LIST);
 	let FilmsList = [];
+	
 
 
 	switch (listToShow) {
 		case "All":
-			FilmsList = sortSelectedList(allFilmsList, activeGeners, currentYear);
+			FilmsList = sortSelectedList(allFilmsList, activeGeners, currentYear, sortType);
 			break;
 		case "To-Read":
-			FilmsList = sortSelectedList(toReadFilmsList, activeGeners, currentYear);
+			FilmsList = sortSelectedList(toReadFilmsList, activeGeners, currentYear, sortType);
 			break;
 		case "Favorite":
-			FilmsList = sortSelectedList(favotiteFilmsList, activeGeners, currentYear);
+			FilmsList = sortSelectedList(favotiteFilmsList, activeGeners, currentYear, sortType);
 			break;
 		default: alert("Error");
 	}

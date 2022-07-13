@@ -35,7 +35,7 @@ const CreatePagination = ({ FilmsList }) => {
 				<button className="Next-page_btn" onClick={() => { dispatch(setNewCurrentPage(currentPage + 1)) }}>Next</button>
 			</div>
 			<hr />
-			{(FilmsList.length) ? <small>{currentPage} из {countPages}</small> : <small>Films not found</small>}
+			{(FilmsList.length) ? <small>{currentPage} of {countPages}</small> : <small>Films not found</small>}
 		</div>
 	);
 }

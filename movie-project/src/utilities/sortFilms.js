@@ -7,7 +7,7 @@ import {
 import { FILMS_ALL } from "@constants/Constants";
 
 
-export function sortFilmsList(state, action) {
+function sortFilmsList(state, action) {
 	let newFilmsList = [...state];
 	switch (action.type) {
 		case SORT_POPULARITY_DESCENDING:
@@ -27,7 +27,7 @@ export function sortFilmsList(state, action) {
 	}
 }
 
-export function sortSelectedList(listToSort, activeGeners, currentYear) {
+export function sortSelectedList(listToSort, activeGeners, currentYear, sortType) {
 	let FilmsList = [];
 	if (!activeGeners[0]) {
 		FilmsList = listToSort.filter(item => String(new Date(item.release_date).getFullYear()) === (currentYear));
@@ -38,7 +38,7 @@ export function sortSelectedList(listToSort, activeGeners, currentYear) {
 		});
 		FilmsList = FilmsList.filter(item => String(new Date(item.release_date).getFullYear()) === (currentYear));
 	}
-	return FilmsList;
+	return sortFilmsList(FilmsList, sortType);
 }
 
 

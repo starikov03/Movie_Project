@@ -2,9 +2,7 @@ import { useState, createContext } from "react";
 import { CreateFilmsList } from "./components/films-list/Films-List";
 import { CreateSidebar } from "./components/sidebar/Sidebar";
 import { FILMS_ALL } from "@constants/Constants";
-import { sortFilmsList } from "@utilities/sortFilms";
-import { ADD_NEW_ACTIVE_GENER, DELETE_ACTIVE_GENER, sortFavoriteList, sortToReadList, sortPopularityDescendingList } from "@redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { ADD_NEW_ACTIVE_GENER, DELETE_ACTIVE_GENER, sortPopularityDescendingList } from "@redux/actions";
 export const MyContext = createContext();
 
 
@@ -15,9 +13,6 @@ const MainPage = () => {
 	const [FILMS, set_FILMS] = useState(FILMS_ALL);
 	const [currentYear, setCurrentYear] = useState("2020");
 	const [activeGeners, setActiveGeners] = useState([]);
-	const favotiteFilmsList = useSelector(state => state.FAVORITE_LIST);
-	const toReadFilmsList = useSelector(state => state.TO_READ_LIST);
-	const dispatch = useDispatch();
 
 
 	const setNewCurrentYear = (Year) => { setCurrentYear(Year) };
@@ -38,12 +33,6 @@ const MainPage = () => {
 		}
 	}
 
-	const sortAll = (action) => {
-		set_SORT_TYPE(action);
-		set_FILMS(sortFilmsList(FILMS, action));
-		dispatch(sortFavoriteList(sortFilmsList(favotiteFilmsList, action)));
-		dispatch(sortToReadList(sortFilmsList(toReadFilmsList, action)));
-	}
 
 	const resetFilters = () => {
 		set_LIST_TO_SHOW("All");
@@ -53,11 +42,6 @@ const MainPage = () => {
 		document.getElementById('Select-Years').selectedIndex = 0;
 		document.getElementById('Select-Popularity').selectedIndex = 0;
 		document.querySelectorAll('.checkbox_input').forEach(item => item.checked = false);
-	}
-
-	const setNewListToShow = (selectedList) => {
-		sortAll(SORT_TYPE);
-		set_LIST_TO_SHOW(selectedList);
 	}
 
 
@@ -75,11 +59,12 @@ const MainPage = () => {
             </div>
 			</div>
 
-			<MyContext.Provider value={{ sortAll, setNewCurrentYear, setNewActiveGeners, setNewListToShow, resetFilters }}>
+			<MyContext.Provider value={{ set_SORT_TYPE, setNewCurrentYear, setNewActiveGeners, set_LIST_TO_SHOW, resetFilters }}>
 
 				<CreateSidebar />
 
-				<CreateFilmsList listToShow={LIST_TO_SHOW} allFilmsList={FILMS} currentYear={currentYear} activeGeners={activeGeners} />
+				<CreateFilmsList listToShow={LIST_TO_SHOW} allFilmsList={FILMS} 
+				currentYear={currentYear} activeGeners={activeGeners} sortType={SORT_TYPE} />
 
 			</MyContext.Provider>
 
