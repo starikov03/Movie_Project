@@ -45,7 +45,13 @@ Switching in the filtering block by lists and sorting by genres:
 ![image](https://user-images.githubusercontent.com/93431655/178480757-951abf95-8d80-4e77-ad4a-ef85b76d47a4.png)
 
 
+Filtering by popularity and release date:
 
+![image](https://user-images.githubusercontent.com/93431655/178687335-8eef5982-06e9-4998-90cb-10be329478cf.png)
+
+Filtering by release date, genres and rating:
+
+![image](https://user-images.githubusercontent.com/93431655/178699850-4f62d63a-db9f-4e7f-af8f-55e23715e843.png)
 
 
 Film page:
